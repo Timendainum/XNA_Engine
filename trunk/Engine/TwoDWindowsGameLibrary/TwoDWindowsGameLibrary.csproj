@@ -98,7 +98,6 @@
     <Compile Include="Sprites\AnimatedSprite.cs" />
     <Compile Include="Sprites\Animations\AnimationFrame.cs" />
     <Compile Include="Sprites\Animations\AnimationStrip.cs" />
-    <Compile Include="Sprites\MobileSprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprites\Sprite.cs" />
     <Compile Include="RectangleTileMap\MapCell.cs" />
