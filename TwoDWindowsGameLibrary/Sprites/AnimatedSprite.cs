@@ -28,7 +28,7 @@ namespace TwoDWindowsGameLibrary.Sprites
 			Animations[PlayingAnimation].Update(gameTime);
 		}
 
-		public virtual void Draw(SpriteBatch spriteBatch)
+		public override void Draw(SpriteBatch spriteBatch)
 		{
 			AnimationStrip strip = Animations[PlayingAnimation];
 

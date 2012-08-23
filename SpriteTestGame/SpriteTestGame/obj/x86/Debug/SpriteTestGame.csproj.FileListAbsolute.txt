@@ -1,0 +1,10 @@
+C:\Users\James\Code\Engine\SpriteTestGame\SpriteTestGame\bin\x86\Debug\SpriteTestGame.exe
+C:\Users\James\Code\Engine\SpriteTestGame\SpriteTestGame\bin\x86\Debug\SpriteTestGame.pdb
+C:\Users\James\Code\Engine\SpriteTestGame\SpriteTestGame\bin\x86\Debug\FoundationClassLibrary.dll
+C:\Users\James\Code\Engine\SpriteTestGame\SpriteTestGame\bin\x86\Debug\TwoDWindowsGameLibrary.dll
+C:\Users\James\Code\Engine\SpriteTestGame\SpriteTestGame\bin\x86\Debug\FoundationClassLibrary.pdb
+C:\Users\James\Code\Engine\SpriteTestGame\SpriteTestGame\bin\x86\Debug\TwoDWindowsGameLibrary.pdb
+C:\Users\James\Code\Engine\SpriteTestGame\SpriteTestGame\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\James\Code\Engine\SpriteTestGame\SpriteTestGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\James\Code\Engine\SpriteTestGame\SpriteTestGame\obj\x86\Debug\SpriteTestGame.exe
+C:\Users\James\Code\Engine\SpriteTestGame\SpriteTestGame\obj\x86\Debug\SpriteTestGame.pdb
