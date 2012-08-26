@@ -9,8 +9,6 @@ namespace TwoDWindowsGameLibrary.RectangleTileMap
 		public static int Width = 0;
 		public static int Height = 0;
 
-		public static Vector2 originPoint = Vector2.Zero;
-
 		public static Rectangle GetSourceRectangle(int tileIndex)
 		{
 			int tileY;
