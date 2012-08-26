@@ -8,20 +8,20 @@ namespace TwoDWindowsGameLibrary.HexTileMap
         public int Width;
         public int Height;
 
-        public HexTileMap(int height, int width)
-        {
+        public HexTileMap(int width, int height)
+	   {
 		   Height = height;
 		   Width = width;
 
-            for (int y = 0; y < Height; y++)
-            {
-                MapRow thisRow = new MapRow();
-                for (int x = 0; x < Width; x++)
-                {
-                    thisRow.Columns.Add(new MapCell(0));
-                }
-                Rows.Add(thisRow);
-            }
-        }
+		   for (int y = 0; y < Height; y++)
+		   {
+			   MapRow thisRow = new MapRow();
+			   for (int x = 0; x < Width; x++)
+			   {
+				   thisRow.Columns.Add(new MapCell(0));
+			   }
+			   Rows.Add(thisRow);
+		   }
+	   }
     }
 }
