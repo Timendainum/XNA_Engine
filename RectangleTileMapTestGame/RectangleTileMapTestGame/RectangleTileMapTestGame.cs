@@ -21,6 +21,8 @@ namespace RectangleTileMapTestGame
 		SpriteBatch spriteBatch;
 		Dictionary<String, Texture2D> Textures = new Dictionary<String, Texture2D>();
 		RectangleTileMap rtm;
+		int squaresAcross = 18;
+		int squaresDown = 11;
 
 		public RectangleTileMapTestGame()
 		{
@@ -51,13 +53,13 @@ namespace RectangleTileMapTestGame
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			// TODO: use this.Content to load your game content here
-			Texture2D newTexture = Content.Load<Texture2D>(@"TileSets\part1_tileset");
+			Texture2D newTexture = Content.Load<Texture2D>(@"TileSets\part2_tileset");
 			Textures.Add("TileMap", newTexture);
 
 
 			rtm = new RectangleTileMap(50, 50);
-			Tile.Height = 32;
-			Tile.Width = 32;
+			Tile.Height = 48;
+			Tile.Width = 48;
 			Tile.Texture = Textures["TileMap"];
 
 			// Create Sample Map Data
@@ -137,7 +139,30 @@ namespace RectangleTileMapTestGame
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
 				this.Exit();
 
-			// TODO: Add your update logic here
+			KeyboardState ks = Keyboard.GetState();
+			if (ks.IsKeyDown(Keys.Left))
+			{
+				Camera.Location.X = MathHelper.Clamp(Camera.Location.X - 2, 0,
+				    (rtm.Width - squaresAcross) * Tile.Width);
+			}
+
+			if (ks.IsKeyDown(Keys.Right))
+			{
+				Camera.Location.X = MathHelper.Clamp(Camera.Location.X + 2, 0,
+				    (rtm.Width - squaresAcross) * Tile.Width);
+			}
+
+			if (ks.IsKeyDown(Keys.Up))
+			{
+				Camera.Location.Y = MathHelper.Clamp(Camera.Location.Y - 2, 0,
+				    (rtm.Height - squaresDown) * Tile.Height);
+			}
+
+			if (ks.IsKeyDown(Keys.Down))
+			{
+				Camera.Location.Y = MathHelper.Clamp(Camera.Location.Y + 2, 0,
+				    (rtm.Height - squaresDown) * Tile.Height);
+			}
 
 			base.Update(gameTime);
 		}
@@ -160,15 +185,20 @@ namespace RectangleTileMapTestGame
 			int offsetX = (int)squareOffset.X;
 			int offsetY = (int)squareOffset.Y;
 
-			for (int y = 0; y < rtm.Height; y++)
+			for (int y = 0; y < squaresAcross; y++)
 			{
-				for (int x = 0; x < rtm.Width; x++)
+				for (int x = 0; x < squaresAcross; x++)
 				{
-					spriteBatch.Draw(
-					    Tile.Texture,
-					    new Rectangle((x * 32) - offsetX, (y * 32) - offsetY, 32, 32),
-					    Tile.GetSourceRectangle(rtm.Rows[y + firstY].Columns[x + firstX].TileID),
-					    Color.White);
+					foreach (int tileID in rtm.Rows[y + firstY].Columns[x + firstX].BaseTiles)
+					{
+						spriteBatch.Draw(
+						   Tile.Texture,
+						   new Rectangle(
+							  (x * Tile.Width) - offsetX, (y * Tile.Height) - offsetY,
+							  Tile.Width, Tile.Height),
+						   Tile.GetSourceRectangle(tileID),
+						   Color.White);
+					}
 				}
 			}
 
