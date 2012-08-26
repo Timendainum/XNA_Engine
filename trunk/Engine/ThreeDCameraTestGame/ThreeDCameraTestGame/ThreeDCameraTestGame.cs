@@ -8,18 +8,32 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using ThreeDWindowsGameLibrary.Cameras;
 
 namespace ThreeDCameraTestGame
 {
 	/// <summary>
 	/// This is the main type for your game
 	/// </summary>
-	public class Game1 : Microsoft.Xna.Framework.Game
+	public class ThreeDCameraTestGame : Game
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		public Game1()
+		private ECameraMode _cameraMode = ECameraMode.Target;
+		public ECameraMode CameraMode
+		{
+			get
+			{
+				return _cameraMode;
+			}
+			set
+			{
+				_cameraMode = value;
+			}
+		}
+
+		public ThreeDCameraTestGame()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
