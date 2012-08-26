@@ -5,9 +5,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_TwoDWindowsGameLibrary", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_FoundationClassLibrary", "..\Foundation\FoundationClassLibrary\_FoundationClassLibrary.csproj", "{A3F2791F-F80E-498F-95C6-9B8D556B5960}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "TestContent", "TestContent\TestContent.contentproj", "{7A2EE876-2EE4-4F74-B688-F33CAD7A4AB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestContent", "TestContent\TestContent.contentproj", "{7A2EE876-2EE4-4F74-B688-F33CAD7A4AB9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpriteTestGame", "SpriteTestGame\SpriteTestGame\SpriteTestGame.csproj", "{AA38639B-4F95-4665-8166-7EA0D3D66658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_Farseer Physics XNA", "..\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3 XNA\_Farseer Physics XNA.csproj", "{0A850700-1ABB-4288-A391-6726B90EBEB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RectangleTileMapTestGame", "RectangleTileMapTestGame\RectangleTileMapTestGame\RectangleTileMapTestGame.csproj", "{A2700B8D-B19E-4958-972E-83E5125EBC14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +59,26 @@ Global
 		{AA38639B-4F95-4665-8166-7EA0D3D66658}.Release|Mixed Platforms.Build.0 = Release|x86
 		{AA38639B-4F95-4665-8166-7EA0D3D66658}.Release|x86.ActiveCfg = Release|x86
 		{AA38639B-4F95-4665-8166-7EA0D3D66658}.Release|x86.Build.0 = Release|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Debug|x86.ActiveCfg = Debug|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Debug|x86.Build.0 = Debug|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Release|Any CPU.ActiveCfg = Release|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Release|Mixed Platforms.Build.0 = Release|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Release|x86.ActiveCfg = Release|x86
+		{0A850700-1ABB-4288-A391-6726B90EBEB9}.Release|x86.Build.0 = Release|x86
+		{A2700B8D-B19E-4958-972E-83E5125EBC14}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{A2700B8D-B19E-4958-972E-83E5125EBC14}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{A2700B8D-B19E-4958-972E-83E5125EBC14}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{A2700B8D-B19E-4958-972E-83E5125EBC14}.Debug|x86.ActiveCfg = Debug|x86
+		{A2700B8D-B19E-4958-972E-83E5125EBC14}.Debug|x86.Build.0 = Debug|x86
+		{A2700B8D-B19E-4958-972E-83E5125EBC14}.Release|Any CPU.ActiveCfg = Release|x86
+		{A2700B8D-B19E-4958-972E-83E5125EBC14}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{A2700B8D-B19E-4958-972E-83E5125EBC14}.Release|Mixed Platforms.Build.0 = Release|x86
+		{A2700B8D-B19E-4958-972E-83E5125EBC14}.Release|x86.ActiveCfg = Release|x86
+		{A2700B8D-B19E-4958-972E-83E5125EBC14}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

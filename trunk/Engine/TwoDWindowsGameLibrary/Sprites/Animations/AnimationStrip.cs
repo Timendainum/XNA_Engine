@@ -15,7 +15,7 @@ namespace TwoDWindowsGameLibrary.Sprites.Animiations
 			get
 			{ return _CurrentFrame; }
 			set
-			{ _CurrentFrame = (int)MathHelper.Clamp(value, 0, Frames.Count - 1); }
+			{ _CurrentFrame = (int)MathHelper.Clamp(value, 0, Frames.Count); }
 		}
 		public bool IsLooping = true;
 		public bool FinishedPlaying = false;

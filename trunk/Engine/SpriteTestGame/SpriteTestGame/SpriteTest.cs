@@ -8,21 +8,25 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using TwoDWindowsGameLibrary.Sprites;
 
 namespace SpriteTestGame
 {
 	/// <summary>
 	/// This is the main type for your game
 	/// </summary>
-	public class SpriteTest : Microsoft.Xna.Framework.Game
+	public class SpriteTest : Game
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
+		Dictionary<String, Texture2D> Textures = new Dictionary<String, Texture2D>();
+		Sprite Tank;
+		AnimatedSprite AnimatedTank;
 
 		public SpriteTest()
 		{
 			graphics = new GraphicsDeviceManager(this);
-			Content.RootDirectory = "Content";
+			Content.RootDirectory = "TestContent";
 		}
 
 		/// <summary>
@@ -34,7 +38,6 @@ namespace SpriteTestGame
 		protected override void Initialize()
 		{
 			// TODO: Add your initialization logic here
-
 			base.Initialize();
 		}
 
@@ -48,6 +51,16 @@ namespace SpriteTestGame
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			// TODO: use this.Content to load your game content here
+			Texture2D newTexture = Content.Load<Texture2D>(@"Sprites\MulticolorTanks");
+			Textures.Add("MulticolorTanks", newTexture);
+			newTexture = Content.Load<Texture2D>(@"Sprites\PrincessCharacter");
+			Textures.Add("PrincessCharacter", newTexture);
+
+
+
+			//setup sprite 
+			Tank = new Sprite(Vector2.Zero, Textures["MulticolorTanks"], new Rectangle(0, 0, 32, 32));
+			AnimatedTank = new AnimatedSprite(new Vector2(32, 0), Textures["MulticolorTanks"], new Rectangle(0, 0, 32, 32),"animation", 8, 5.0f);
 		}
 
 		/// <summary>
@@ -71,6 +84,8 @@ namespace SpriteTestGame
 				this.Exit();
 
 			// TODO: Add your update logic here
+			Tank.Update(gameTime);
+			AnimatedTank.Update(gameTime);
 
 			base.Update(gameTime);
 		}
@@ -84,6 +99,10 @@ namespace SpriteTestGame
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
 			// TODO: Add your drawing code here
+			spriteBatch.Begin();
+			Tank.Draw(spriteBatch);
+			AnimatedTank.Draw(spriteBatch);
+			spriteBatch.End();
 
 			base.Draw(gameTime);
 		}

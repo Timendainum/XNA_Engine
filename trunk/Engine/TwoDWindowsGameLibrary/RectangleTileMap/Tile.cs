@@ -3,21 +3,34 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TwoDWindowsGameLibrary.RectangleTileMap
 {
-    public class Tile
-    {
-        public Texture2D Texture;
-        public int Width = 48;
-        public int Height = 48;
+	public static class Tile
+	{
+		public static Texture2D Texture = null;
+		public static int Width = 0;
+		public static int Height = 0;
 
-        public Vector2 originPoint = new Vector2(19, 39);
+		public static Vector2 originPoint = Vector2.Zero;
 
-        public Rectangle GetSourceRectangle(int tileIndex)
-        {
-            int tileY = tileIndex / (Texture.Width / Width);
-            int tileX = tileIndex % (Texture.Width / Width);
+		public static Rectangle GetSourceRectangle(int tileIndex)
+		{
+			int tileY;
+			int tileX;
 
-            return new Rectangle(tileX * Width, tileY * Height, Width, Height);
-        }
+			try
+			{
+				tileY = tileIndex / (Texture.Width / Width);
+				tileX = tileIndex % (Texture.Width / Width);
+			}
+			catch
+			{
+				//
+				tileX = 0;
+				tileY = 0;
+			}
 
-    }
+
+			return new Rectangle(tileX * Width, tileY * Height, Width, Height);
+		}
+
+	}
 }
