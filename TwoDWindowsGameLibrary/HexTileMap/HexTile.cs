@@ -3,18 +3,18 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TwoDWindowsGameLibrary.HexTileMap
 {
-     public class HexTile
+     public static class HexTile
     {
-        public Texture2D Texture;
-        public int Width = 33;
-        public int Height = 27;
-        public int StepX = 52;
-        public int StepY = 14;
-        public int OddRowXOffset = 26;
+        public static Texture2D Texture;
+	   public static int Width = 33;
+	   public static int Height = 27;
+	   public static int StepX = 52;
+	   public static int StepY = 14;
+	   public static int OddRowXOffset = 26;
 
-        public Vector2 originPoint = new Vector2(19, 39);
+	   public static Vector2 originPoint = new Vector2(19, 39);
 
-        public Rectangle GetSourceRectangle(int tileIndex)
+	   public static Rectangle GetSourceRectangle(int tileIndex)
         {
             int tileY = tileIndex / (Texture.Width / Width);
             int tileX = tileIndex % (Texture.Width / Width);

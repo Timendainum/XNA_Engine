@@ -10,7 +10,7 @@ namespace HexTileMapTestGame
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            using (HexTileTestGame game = new HexTileTestGame())
             {
                 game.Run();
             }
