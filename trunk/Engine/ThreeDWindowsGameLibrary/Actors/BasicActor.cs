@@ -7,88 +7,130 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThreeDWindowsGameLibrary.Actors
 {
-    public class BasicActor
-    {
-        public Vector3 Position { get; set; }
-        public Vector3 Rotation { get; set; }
-        public Vector3 Scale { get; set; }
+	public class BasicActor
+	{
+		public Vector3 Position { get; set; }
+		public Vector3 Rotation { get; set; }
+		public Vector3 Scale { get; set; }
 
-        public Model Model { get; private set; }
+		public Model Model { get; private set; }
 
-        private Matrix[] _modelTransforms;
-        private GraphicsDevice _graphicsDevice;
-        private BoundingSphere _boundingSphere;
+		private Matrix[] _modelTransforms;
+		private GraphicsDevice _graphicsDevice;
+		private BoundingSphere _boundingSphere;
 
-        public BoundingSphere BoundingSphere
-        {
-            get
-            {
-                // No need for rotation, as this is a sphere
-                Matrix worldTransform = Matrix.CreateScale(Scale) * Matrix.CreateTranslation(Position);
+		public BoundingSphere BoundingSphere
+		{
+			get
+			{
+				// No need for rotation, as this is a sphere
+				Matrix worldTransform = Matrix.CreateScale(Scale) * Matrix.CreateTranslation(Position);
 
-                BoundingSphere transformed = _boundingSphere;
-                transformed = transformed.Transform(worldTransform);
+				BoundingSphere transformed = _boundingSphere;
+				transformed = transformed.Transform(worldTransform);
 
-                return transformed;
-            }
-        }
+				return transformed;
+			}
+		}
 
-        public BasicActor(Model model, Vector3 position, Vector3 rotation, Vector3 scale, GraphicsDevice graphicsDevice)
-        {
-            Model = model;
+		public BasicActor(Model model, Vector3 position, Vector3 rotation, Vector3 scale, GraphicsDevice graphicsDevice)
+		{
+			Model = model;
 
-            _modelTransforms = new Matrix[Model.Bones.Count];
-            Model.CopyAbsoluteBoneTransformsTo(_modelTransforms);
+			_modelTransforms = new Matrix[Model.Bones.Count];
+			Model.CopyAbsoluteBoneTransformsTo(_modelTransforms);
 
-            buildBoundingSphere();
+			buildBoundingSphere();
+			generateTags();
 
-            Position = position;
-            Rotation = rotation;
-            Scale = scale;
+			Position = position;
+			Rotation = rotation;
+			Scale = scale;
 
-            _graphicsDevice = graphicsDevice;
-        }
+			_graphicsDevice = graphicsDevice;
+		}
 
-        private void buildBoundingSphere()
-        {
-            BoundingSphere sphere = new BoundingSphere(Vector3.Zero, 0);
+		private void buildBoundingSphere()
+		{
+			BoundingSphere sphere = new BoundingSphere(Vector3.Zero, 0);
 
-            // Merge all the model's built in bounding spheres
-            foreach (ModelMesh mesh in Model.Meshes)
-            {
-                BoundingSphere transformed = mesh.BoundingSphere.Transform(
-                    _modelTransforms[mesh.ParentBone.Index]);
+			// Merge all the model's built in bounding spheres
+			foreach (ModelMesh mesh in Model.Meshes)
+			{
+				BoundingSphere transformed = mesh.BoundingSphere.Transform(
+				    _modelTransforms[mesh.ParentBone.Index]);
 
-                sphere = BoundingSphere.CreateMerged(sphere, transformed);
-            }
+				sphere = BoundingSphere.CreateMerged(sphere, transformed);
+			}
 
-            _boundingSphere = sphere;
-        }
+			_boundingSphere = sphere;
+		}
 
-        public void Draw(Matrix view, Matrix projection)
-        {
-            // Calculate the base transformation by combining
-            // translation, rotation, and scaling
-            Matrix baseWorld = Matrix.CreateScale(Scale) * Matrix.CreateFromYawPitchRoll(Rotation.Y, Rotation.X, Rotation.Z) * Matrix.CreateTranslation(Position);
+		private void generateTags()
+		{
+			foreach (ModelMesh mesh in Model.Meshes)
+			{
+				foreach (ModelMeshPart part in mesh.MeshParts)
+				{
+					if (part.Effect is BasicEffect)
+					{
+						BasicEffect effect = (BasicEffect)part.Effect;
+						MeshTag tag = new MeshTag(effect.DiffuseColor, effect.Texture, effect.SpecularPower);
+						part.Tag = tag;
+					}
+				}
+			}
+		}
 
-            foreach (ModelMesh mesh in Model.Meshes)
-            {
-                Matrix localWorld = _modelTransforms[mesh.ParentBone.Index] * baseWorld;
+		public void CacheEffects()
+		{
+			foreach (ModelMesh mesh in Model.Meshes)
+			{
+				foreach (ModelMeshPart part in mesh.MeshParts)
+				{
+					((MeshTag)part.Tag).CachedEffect = part.Effect;
+				}
+			}
+		}
 
-                foreach (ModelMeshPart meshPart in mesh.MeshParts)
-                {
-                    BasicEffect effect = (BasicEffect)meshPart.Effect;
+		public void RestoreEffects()
+		{
+			foreach (ModelMesh mesh in Model.Meshes)
+			{
+				foreach (ModelMeshPart part in mesh.MeshParts)
+				{
+					if (((MeshTag)part.Tag).CachedEffect != null)
+					{
+						part.Effect = ((MeshTag)part.Tag).CachedEffect;
+					}
+				}
+			}
+		}
 
-                    effect.World = localWorld;
-                    effect.View = view;
-                    effect.Projection = projection;
+		public void Draw(Matrix view, Matrix projection)
+		{
+			// Calculate the base transformation by combining
+			// translation, rotation, and scaling
+			Matrix baseWorld = Matrix.CreateScale(Scale) * Matrix.CreateFromYawPitchRoll(Rotation.Y, Rotation.X, Rotation.Z) * Matrix.CreateTranslation(Position);
 
-                    effect.EnableDefaultLighting();
-                }
+			foreach (ModelMesh mesh in Model.Meshes)
+			{
+				Matrix localWorld = _modelTransforms[mesh.ParentBone.Index] * baseWorld;
 
-                mesh.Draw();
-            }
-        }
-    }
+				foreach (ModelMeshPart meshPart in mesh.MeshParts)
+				{
+					BasicEffect effect = (BasicEffect)meshPart.Effect;
+
+					effect.World = localWorld;
+					effect.View = view;
+					effect.Projection = projection;
+
+					effect.EnableDefaultLighting();
+				}
+
+				mesh.Draw();
+			}
+		}
+	}
 
 }
