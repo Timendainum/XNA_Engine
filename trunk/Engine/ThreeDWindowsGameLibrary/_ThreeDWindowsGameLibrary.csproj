@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actors\BasicActor.cs" />
+    <Compile Include="Actors\MeshTag.cs" />
     <Compile Include="Cameras\ArcBallCamera.cs" />
     <Compile Include="Cameras\Camera.cs" />
     <Compile Include="Cameras\ChaseCamera.cs" />
