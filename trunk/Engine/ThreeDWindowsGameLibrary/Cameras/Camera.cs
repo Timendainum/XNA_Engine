@@ -8,6 +8,8 @@ namespace ThreeDWindowsGameLibrary.Cameras
 		private Matrix _view;
 		private Matrix _projection;
 
+		public Vector3 Position { get; set; }
+
 		public Matrix Projection
 		{
 			get { return _projection; }
