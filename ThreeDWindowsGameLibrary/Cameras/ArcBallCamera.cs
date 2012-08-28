@@ -44,7 +44,6 @@ namespace ThreeDWindowsGameLibrary.Cameras
 		public float MaxDistance { get; set; }
 
 		// Calculated position and specified target
-		public Vector3 Position { get; private set; }
 		public Vector3 Target { get; set; }
 
 		public ArcBallCamera(Vector3 target, float rotationX,

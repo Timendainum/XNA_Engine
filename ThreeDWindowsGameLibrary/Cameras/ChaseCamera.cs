@@ -5,7 +5,6 @@ namespace ThreeDWindowsGameLibrary.Cameras
 {
     public class ChaseCamera : Camera
     {
-        public Vector3 Position { get; private set; }
         public Vector3 Target { get; private set; }
 
         public Vector3 FollowTargetPosition { get; private set; }
