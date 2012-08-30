@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ThreeDWindowsGameLibrary.Actors.Materials;
 
 namespace ThreeDWindowsGameLibrary.Actors
 {
@@ -18,6 +19,8 @@ namespace ThreeDWindowsGameLibrary.Actors
 		private Matrix[] _modelTransforms;
 		private GraphicsDevice _graphicsDevice;
 		private BoundingSphere _boundingSphere;
+
+		public Material Material { get; set; }
 
 		public BoundingSphere BoundingSphere
 		{
@@ -36,6 +39,7 @@ namespace ThreeDWindowsGameLibrary.Actors
 		public BasicActor(Model model, Vector3 position, Vector3 rotation, Vector3 scale, GraphicsDevice graphicsDevice)
 		{
 			Model = model;
+			Material = new Material();
 
 			_modelTransforms = new Matrix[Model.Bones.Count];
 			Model.CopyAbsoluteBoneTransformsTo(_modelTransforms);
@@ -186,7 +190,7 @@ namespace ThreeDWindowsGameLibrary.Actors
 						setEffectParameter(effect, "Projection", projection);
 						setEffectParameter(effect, "CameraPosition", cameraPosition);
 
-						//Material.SetEffectParameters(effect);
+						Material.SetEffectParameters(effect);
 					}
 				}
 
