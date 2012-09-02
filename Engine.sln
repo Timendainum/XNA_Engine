@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_ThreeDWindowsGameLibrary",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_ClientWindowsGameLibrary", "ClientWindowsGameLibrary\_ClientWindowsGameLibrary.csproj", "{B44D0C73-A38D-4412-BA8C-8145F109A3EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_EngineGameLibrary", "EngineGameLibrary\_EngineGameLibrary.csproj", "{D51EC45B-548C-40F6-8D22-01EB467F00A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,16 @@ Global
 		{B44D0C73-A38D-4412-BA8C-8145F109A3EF}.Release|Mixed Platforms.Build.0 = Release|x86
 		{B44D0C73-A38D-4412-BA8C-8145F109A3EF}.Release|x86.ActiveCfg = Release|x86
 		{B44D0C73-A38D-4412-BA8C-8145F109A3EF}.Release|x86.Build.0 = Release|x86
+		{D51EC45B-548C-40F6-8D22-01EB467F00A3}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D51EC45B-548C-40F6-8D22-01EB467F00A3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D51EC45B-548C-40F6-8D22-01EB467F00A3}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{D51EC45B-548C-40F6-8D22-01EB467F00A3}.Debug|x86.ActiveCfg = Debug|x86
+		{D51EC45B-548C-40F6-8D22-01EB467F00A3}.Debug|x86.Build.0 = Debug|x86
+		{D51EC45B-548C-40F6-8D22-01EB467F00A3}.Release|Any CPU.ActiveCfg = Release|x86
+		{D51EC45B-548C-40F6-8D22-01EB467F00A3}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D51EC45B-548C-40F6-8D22-01EB467F00A3}.Release|Mixed Platforms.Build.0 = Release|x86
+		{D51EC45B-548C-40F6-8D22-01EB467F00A3}.Release|x86.ActiveCfg = Release|x86
+		{D51EC45B-548C-40F6-8D22-01EB467F00A3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
