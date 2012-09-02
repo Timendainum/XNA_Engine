@@ -148,11 +148,6 @@ namespace ClientWindowsGameLibrary.ScreenManagement
             // Read the keyboard and gamepad.
             Input.Update();
 
-
-			//update the game state
-			if (GameManager.TheGameManager != null)
-				GameManager.TheGameManager.Update(gameTime);
-
             // Make a copy of the master screen list, to avoid confusion if
             // the process of updating one screen adds or removes others.
             screensToUpdate.Clear();

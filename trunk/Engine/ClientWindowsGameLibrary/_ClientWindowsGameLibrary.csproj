@@ -98,6 +98,13 @@
     <Compile Include="ScreenManagement\MenuEntry.cs" />
     <Compile Include="ScreenManagement\MenuScreen.cs" />
     <Compile Include="ScreenManagement\ScreenManager.cs" />
+    <Compile Include="ScreenManagement\ScreenState.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EngineGameLibrary\_EngineGameLibrary.csproj">
+      <Project>{D51EC45B-548C-40F6-8D22-01EB467F00A3}</Project>
+      <Name>_EngineGameLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
