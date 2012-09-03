@@ -144,8 +144,6 @@ namespace ClientWindowsGameLibrary.ScreenManagement
         #endregion
 
         #region Initialization
-
-
         /// <summary>
         /// Load graphics content for the screen.
         /// </summary>

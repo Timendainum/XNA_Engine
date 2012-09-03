@@ -20,6 +20,34 @@ namespace ClientWindowsGameLibrary.ScreenManagement
 
 		public KeyboardState LastKeyboardState;
 		public MouseState LastMouseState;
+
+		public GameTime CurrentGameTime;
+		#endregion
+
+		#region Properties
+		public float MouseDeltaX
+		{
+			get
+			{
+				return (float)LastMouseState.X - (float)CurrentMouseState.X;
+			}
+		}
+
+		public float MouseDeltaY
+		{
+			get
+			{
+				return (float)LastMouseState.Y - (float)CurrentMouseState.Y;
+			}
+		}
+
+		public float MouseScrollDelta
+		{
+			get
+			{
+				return (float)LastMouseState.ScrollWheelValue - (float)CurrentMouseState.ScrollWheelValue;
+			}
+		}
 		#endregion
 
 		#region Initialization
@@ -38,8 +66,10 @@ namespace ClientWindowsGameLibrary.ScreenManagement
 		/// <summary>
 		/// Reads the latest state of the keyboard and gamepad.
 		/// </summary>
-		public void Update()
+		public void Update(GameTime gameTime)
 		{
+			CurrentGameTime = gameTime;
+
 			LastKeyboardState = CurrentKeyboardState;
 
 			CurrentKeyboardState = Keyboard.GetState();
