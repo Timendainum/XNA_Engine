@@ -93,6 +93,7 @@ namespace ClientWindowsGameLibrary.ScreenManagement
 		/// </summary>
 		public override void Initialize()
 		{
+		
 			base.Initialize();
 
 
