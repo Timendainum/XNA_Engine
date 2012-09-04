@@ -1,23 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ThreeDWindowsGameLibrary.Actors.Materials;
+using ThreeDWindowsGameLibrary.Simulation;
 
 namespace ThreeDWindowsGameLibrary.Actors
 {
 	public class BasicActor
 	{
-		public Vector3 Position { get; set; }
-		public Vector3 Rotation { get; set; }
-		public Vector3 Scale { get; set; }
+		public Vector3 Position
+		{
+			get
+			{
+				return Entity.Position;
+			}
+		}
+		public Vector3 Rotation
+		{
+			get
+			{
+				return Entity.Rotation;
+			}
+		}
+		public Vector3 Scale
+		{
+			get
+			{
+				return Entity.Scale;
+			}
+		}
 
 		public Model Model { get; private set; }
+		public Entity Entity { get; private set; }
 
 		private Matrix[] _modelTransforms;
-		private GraphicsDevice _graphicsDevice;
 		private BoundingSphere _boundingSphere;
 
 		public Material Material { get; set; }
@@ -36,8 +51,9 @@ namespace ThreeDWindowsGameLibrary.Actors
 			}
 		}
 
-		public BasicActor(Model model, Vector3 position, Vector3 rotation, Vector3 scale, GraphicsDevice graphicsDevice)
+		public BasicActor(Entity entity, Model model)
 		{
+			Entity = entity;
 			Model = model;
 			Material = new Material();
 
@@ -46,12 +62,6 @@ namespace ThreeDWindowsGameLibrary.Actors
 
 			buildBoundingSphere();
 			generateTags();
-
-			Position = position;
-			Rotation = rotation;
-			Scale = scale;
-
-			_graphicsDevice = graphicsDevice;
 		}
 
 		private void buildBoundingSphere()

@@ -166,8 +166,7 @@ namespace ClientWindowsGameLibrary.ScreenManagement
         /// Unlike HandleInput, this method is called regardless of whether the screen
         /// is active, hidden, or in the middle of a transition.
         /// </summary>
-        public virtual void Update(GameTime gameTime, bool otherScreenHasFocus,
-                                                      bool coveredByOtherScreen)
+        public virtual void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
             this.otherScreenHasFocus = otherScreenHasFocus;
 
@@ -281,10 +280,6 @@ namespace ClientWindowsGameLibrary.ScreenManagement
                 isExiting = true;
             }
         }
-
-
-
-
         #endregion
     }
 }
