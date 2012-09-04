@@ -106,6 +106,7 @@
     <Compile Include="Simulation\Entity.cs" />
     <Compile Include="Simulation\JitterGameManager.cs" />
     <Compile Include="Simulation\RigidBodyEntity.cs" />
+    <Compile Include="Simulation\VectorHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Jitter Physics 0.1.7.0\Jitter\Jitter.csproj">

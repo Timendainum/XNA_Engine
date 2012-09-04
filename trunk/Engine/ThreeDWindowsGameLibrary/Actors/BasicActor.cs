@@ -179,8 +179,7 @@ namespace ThreeDWindowsGameLibrary.Actors
 
 			foreach (ModelMesh mesh in Model.Meshes)
 			{
-				Matrix localWorld = _modelTransforms[mesh.ParentBone.Index]
-				    * baseWorld;
+				Matrix localWorld = _modelTransforms[mesh.ParentBone.Index] * baseWorld;
 
 				foreach (ModelMeshPart meshPart in mesh.MeshParts)
 				{
