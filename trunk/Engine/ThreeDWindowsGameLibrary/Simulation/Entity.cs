@@ -8,7 +8,20 @@ namespace ThreeDWindowsGameLibrary.Simulation
 		#region properties
 		public abstract Vector3 Position { get; set; }
 
-		public abstract Vector3 Rotation { get; set; }
+		private Vector3 _positionOffset = Vector3.Zero;
+		public Vector3 PositionOffset
+		{
+			get
+			{
+				return _positionOffset;
+			}
+			set
+			{
+				_positionOffset = value;
+			}
+		}
+
+		public abstract Matrix Rotation { get; set; }
 
 		public Vector3 Scale { get; set; }
 
