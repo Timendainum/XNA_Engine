@@ -103,6 +103,8 @@
     <Compile Include="Cameras\FreeCamera.cs" />
     <Compile Include="Cameras\TargetCamera.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenManagement\ICameraEnabledGameScreen.cs" />
+    <Compile Include="Simulation\DebugDrawer.cs" />
     <Compile Include="Simulation\Entity.cs" />
     <Compile Include="Simulation\JitterGameManager.cs" />
     <Compile Include="Simulation\RigidBodyEntity.cs" />

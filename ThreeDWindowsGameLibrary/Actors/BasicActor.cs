@@ -14,7 +14,7 @@ namespace ThreeDWindowsGameLibrary.Actors
 				return Entity.Position;
 			}
 		}
-		public Vector3 Rotation
+		public Matrix Rotation
 		{
 			get
 			{
@@ -173,8 +173,7 @@ namespace ThreeDWindowsGameLibrary.Actors
 			// Calculate the base transformation by combining
 			// translation, rotation, and scaling
 			Matrix baseWorld = Matrix.CreateScale(Scale)
-			    * Matrix.CreateFromYawPitchRoll(
-				   Rotation.Y, Rotation.X, Rotation.Z)
+			    * Rotation
 			    * Matrix.CreateTranslation(Position);
 
 			foreach (ModelMesh mesh in Model.Meshes)

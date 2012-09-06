@@ -15,33 +15,33 @@ namespace ThreeDWindowsGameLibrary.Simulation
 		{
 			get
 			{
-				return VectorHelper.ToXNAVector(Body.Position);
+				return VectorHelper.ToXNAVector(Body.Position) - PositionOffset;
 			}
 			set
 			{
-				Body.Position = VectorHelper.ToJitterVector(value);
+				Body.Position = VectorHelper.ToJitterVector(value + PositionOffset);
 			}
 		}
 
-		public override Vector3 Rotation
+		public override Matrix Rotation
 		{
 			get
 			{
-				return VectorHelper.CreateRotationVector(VectorHelper.ToXNAMatrix(Body.Orientation));
+				return VectorHelper.ToXNAMatrix(Body.Orientation);
 			}
 			set
 			{
-				Body.Orientation = VectorHelper.ToJitterMatrix(VectorHelper.CreateOrientationMatrix(value));
+				Body.Orientation = VectorHelper.ToJitterMatrix(value);
 			}
 		}
 		
 		
 		
-		public RigidBodyEntity(string name, Vector3 position, Vector3 rotation, Vector3 scale, Shape shape)
+		public RigidBodyEntity(string name, Vector3 position, Matrix rotation, Vector3 scale, Shape shape)
 			: base(name, scale)
 		{
 			Body = new RigidBody(shape);
-
+			Body.EnableDebugDraw = true;
 			Position = position;
 			Rotation = rotation;
 		}
