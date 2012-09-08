@@ -49,7 +49,7 @@ namespace ThreeDWindowsGameLibrary.Simulation
 			AddEntity(ground);
 
 
-			for (int i = 0; i < 2; i++)
+			for (int i = 0; i < 10; i++)
 			{
 				for (int y = 0; y < 10; y++)
 				{
@@ -60,8 +60,8 @@ namespace ThreeDWindowsGameLibrary.Simulation
 						offset = 5f;
 
 
-					RigidBodyEntity ship = new RigidBodyEntity("ship", new Vector3((i * 15), 500f + (y * 15f), offset), VectorHelper.CreateOrientationMatrix(Vector3.Zero), Vector3.One * 0.005f, new BoxShape(new JVector(10, 5, 10)));
-					ship.Body.Material.Restitution = 0.9f;
+					RigidBodyEntity ship = new RigidBodyEntity("ship", new Vector3((i * 15), 100f + (y * 15f), offset), VectorHelper.CreateOrientationMatrix(Vector3.Zero), Vector3.One * 0.005f, new BoxShape(new JVector(10, 5, 10)));
+					ship.Body.Material.Restitution = 0.01f;
 					ship.Body.Mass = 2500f;
 					ship.Body.EnableDebugDraw = true;
 					AddEntity(ship);
