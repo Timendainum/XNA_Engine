@@ -1,8 +1,9 @@
-#region Using Statements
 using System;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using ClientWindowsGameLibrary.ScreenManagement.Overlays;
+using Microsoft.Xna.Framework.Graphics;
 
-#endregion
 
 namespace ClientWindowsGameLibrary.ScreenManagement
 {
@@ -17,10 +18,14 @@ namespace ClientWindowsGameLibrary.ScreenManagement
     /// </summary>
     public abstract class GameScreen
     {
-        #region Properties
+	    #region fields
+	    public List<Overlay> Overlays = new List<Overlay>();
+
+	    #endregion
 
 
-        /// <summary>
+	    #region Properties
+	    /// <summary>
         /// Normally when one screen is brought up over the top of another,
         /// the first screen will transition off to make room for the new
         /// one. This property indicates whether the screen is only a small
@@ -209,6 +214,12 @@ namespace ClientWindowsGameLibrary.ScreenManagement
                     screenState = ScreenState.Active;
                 }
             }
+
+		   //Update overlays
+		  foreach (Overlay o in Overlays)
+		  {
+			  o.Update(gameTime);
+		  }
         }
 
 
@@ -247,13 +258,32 @@ namespace ClientWindowsGameLibrary.ScreenManagement
         /// is only called when the screen is active, and not when some other
         /// screen has taken the focus.
         /// </summary>
-        public virtual void HandleInput(InputState input) { }
+        public virtual void HandleInput(InputState input)
+	   {
+		   //Update overlays
+		   foreach (Overlay o in Overlays)
+		   {
+			   o.HandleInput(input);
+		   }
+	   }
 
 
         /// <summary>
         /// This is called when the screen should draw itself.
         /// </summary>
-        public virtual void Draw(GameTime gameTime) { }
+        public virtual void Draw(GameTime gameTime) 
+	   {
+		   if (Overlays.Count > 0)
+		   {
+			   SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+			   spriteBatch.Begin();
+			   foreach (Overlay o in Overlays)
+			   {
+				   o.Draw(spriteBatch, gameTime);
+			   }
+			   spriteBatch.End();
+		   }
+	   }
 
 
         #endregion

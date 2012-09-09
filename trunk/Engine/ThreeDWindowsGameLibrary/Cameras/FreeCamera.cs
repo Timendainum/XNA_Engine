@@ -5,13 +5,34 @@ namespace ThreeDWindowsGameLibrary.Cameras
 {
 	public class FreeCamera : Camera
 	{
-		public float Yaw { get; set; }
-		public float Pitch { get; set; }
-
-
+		private float _Pitch;
+		private float _Yaw;
+		private Vector3 _translation;
+		
 		public Vector3 Target { get; private set; }
 
-		private Vector3 _translation;
+		public float Yaw
+		{
+			get
+			{
+				return _Yaw;
+			}
+			set
+			{
+				_Yaw = value % MathHelper.TwoPi;
+			}
+		}
+		public float Pitch
+		{
+			get
+			{
+				return _Pitch;
+			}
+			set
+			{
+				_Pitch = value % MathHelper.TwoPi;
+			}
+		}
 
 		public FreeCamera(Vector3 position, float yaw, float pitch, GraphicsDevice graphicsDevice)
 			: base(graphicsDevice)

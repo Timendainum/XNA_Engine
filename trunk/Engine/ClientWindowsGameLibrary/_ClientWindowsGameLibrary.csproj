@@ -93,10 +93,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenManagement\ScreenContentManager.cs" />
     <Compile Include="ScreenManagement\GameScreen.cs" />
+    <Compile Include="ScreenManagement\IContentManagerScreen.cs" />
     <Compile Include="ScreenManagement\InputState.cs" />
     <Compile Include="ScreenManagement\MenuEntry.cs" />
     <Compile Include="ScreenManagement\MenuScreen.cs" />
+    <Compile Include="ScreenManagement\Overlays\Overlay.cs" />
     <Compile Include="ScreenManagement\ScreenManager.cs" />
     <Compile Include="ScreenManagement\ScreenState.cs" />
   </ItemGroup>
