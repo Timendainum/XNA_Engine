@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using ThreeDWindowsGameLibrary.Actors;
 
 namespace ThreeDWindowsGameLibrary.Simulation
 {
