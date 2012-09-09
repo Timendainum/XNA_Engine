@@ -14,5 +14,15 @@ namespace EngineGameLibrary.Simulation
 		public abstract void Update(GameTime gameTime);
 		#endregion
 
+		/// <summary>
+		/// This should be called from GameManager
+		/// </summary>
+		public abstract void StartGame();
+
+		/// <summary>
+		/// This should be called from GameManager
+		/// </summary>
+		public abstract void EndGame();
+
 	}
 }
