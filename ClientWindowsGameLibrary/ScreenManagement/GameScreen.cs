@@ -94,13 +94,13 @@ namespace ClientWindowsGameLibrary.ScreenManagement
         /// <summary>
         /// Gets the current screen transition state.
         /// </summary>
-        public ScreenState ScreenState
+        public EScreenState ScreenState
         {
             get { return screenState; }
             protected set { screenState = value; }
         }
 
-        ScreenState screenState = ScreenState.TransitionOn;
+        EScreenState screenState = EScreenState.TransitionOn;
 
 
         /// <summary>
@@ -128,8 +128,8 @@ namespace ClientWindowsGameLibrary.ScreenManagement
             get
             {
                 return !otherScreenHasFocus &&
-                       (screenState == ScreenState.TransitionOn ||
-                        screenState == ScreenState.Active);
+                       (screenState == EScreenState.TransitionOn ||
+                        screenState == EScreenState.Active);
             }
         }
 
@@ -178,7 +178,7 @@ namespace ClientWindowsGameLibrary.ScreenManagement
             if (isExiting)
             {
                 // If the screen is going away to die, it should transition off.
-                screenState = ScreenState.TransitionOff;
+                screenState = EScreenState.TransitionOff;
 
                 if (!UpdateTransition(gameTime, transitionOffTime, 1))
                 {
@@ -192,12 +192,12 @@ namespace ClientWindowsGameLibrary.ScreenManagement
                 if (UpdateTransition(gameTime, transitionOffTime, 1))
                 {
                     // Still busy transitioning.
-                    screenState = ScreenState.TransitionOff;
+                    screenState = EScreenState.TransitionOff;
                 }
                 else
                 {
                     // Transition finished!
-                    screenState = ScreenState.Hidden;
+                    screenState = EScreenState.Hidden;
                 }
             }
             else
@@ -206,12 +206,12 @@ namespace ClientWindowsGameLibrary.ScreenManagement
                 if (UpdateTransition(gameTime, transitionOnTime, -1))
                 {
                     // Still busy transitioning.
-                    screenState = ScreenState.TransitionOn;
+                    screenState = EScreenState.TransitionOn;
                 }
                 else
                 {
                     // Transition finished!
-                    screenState = ScreenState.Active;
+                    screenState = EScreenState.Active;
                 }
             }
 

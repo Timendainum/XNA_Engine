@@ -170,8 +170,8 @@ namespace ClientWindowsGameLibrary.ScreenManagement
 				// Update the screen.
 				screen.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
 
-				if (screen.ScreenState == ScreenState.TransitionOn ||
-				    screen.ScreenState == ScreenState.Active)
+				if (screen.ScreenState == EScreenState.TransitionOn ||
+				    screen.ScreenState == EScreenState.Active)
 				{
 					// If this is the first active screen we came across,
 					// give it a chance to handle input.
@@ -216,7 +216,7 @@ namespace ClientWindowsGameLibrary.ScreenManagement
 		{
 			foreach (GameScreen screen in screens)
 			{
-				if (screen.ScreenState == ScreenState.Hidden)
+				if (screen.ScreenState == EScreenState.Hidden)
 					continue;
 
 				screen.Draw(gameTime);
