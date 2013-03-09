@@ -101,7 +101,7 @@
     <Compile Include="ScreenManagement\MenuScreen.cs" />
     <Compile Include="ScreenManagement\Overlays\Overlay.cs" />
     <Compile Include="ScreenManagement\ScreenManager.cs" />
-    <Compile Include="ScreenManagement\ScreenState.cs" />
+    <Compile Include="ScreenManagement\EScreenState.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EngineGameLibrary\_EngineGameLibrary.csproj">

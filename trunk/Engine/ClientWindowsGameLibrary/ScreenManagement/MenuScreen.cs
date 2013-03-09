@@ -230,7 +230,7 @@ namespace ClientWindowsGameLibrary.ScreenManagement
 				// each entry is to be centered horizontally
 				position.X = ScreenManager.GraphicsDevice.Viewport.Width / 2 - menuEntry.GetWidth(this) / 2;
 
-				if (ScreenState == ScreenState.TransitionOn)
+				if (ScreenState == EScreenState.TransitionOn)
 					position.X -= transitionOffset * 256;
 				else
 					position.X += transitionOffset * 512;
